@@ -36,6 +36,24 @@ function NewsForm({ type }) {
                     />
                 ))}
             </div>
+            <div className="w-full flex flex-col gap-3 md:grid md:grid-cols-2 md:gap-x-3">
+                <div className="flex flex-col gap-3">
+                    <label className="font-semibold" htmlFor="category">Categoria</label>
+                    <select className="py-2 px-4 border border-slate-400 rounded" {...register('categoria', { required: true })} id="category">
+                        <option value="">-- Selecciona una categoria --</option>
+                        <option value="1">Inteligencia Artificial</option>
+                        <option value="2">Salseo</option>
+                    </select>
+                </div>
+                <div className="flex flex-col gap-3">
+                    <label className="font-semibold" htmlFor="tag">Etiqueta</label>
+                    <select className="py-2 px-4 border border-slate-400 rounded" {...register('etiqueta', { required: true })} id="tag">
+                        <option value="">-- Selecciona una etiqueta --</option>
+                        <option value="1">Nuevo</option>
+                        <option value="2">Tendencia</option>
+                    </select>
+                </div>
+            </div>
             {fileFields.map((fileField, index) => (
                 <FormField
                     key={index}
