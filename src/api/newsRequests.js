@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { API_URL } from '@/utils/env.config'
+import { VITE_API_URL } from '@/utils/env.config'
 
 export const apiConfig = axios.create({
-    baseURL: API_URL,
+    baseURL: VITE_API_URL,
     timeout: 6000
 })
 
@@ -34,4 +34,4 @@ export const reviewNews = async (id, data) => await apiConfig.patch(`/noticias/$
  * @param {number} id 
  * @returns {Promise<object>} a message if deletion was successful
  */
-export const deleteNews = async id => await apiConfig.delete(`/noticias/${id}/destroy`)
+export const deleteNews = async id => await apiConfig.delete(`/noticias/${id}`)

@@ -1,0 +1,1 @@
+export const showDate = (date) => date.split('/').reverse().join('-')

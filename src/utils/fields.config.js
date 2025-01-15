@@ -3,7 +3,7 @@ export const fields = [
         {
             label: 'Agrega un título',
             field: {
-                id: 'title',
+                id: 'titulo',
                 type: 'text',
                 placeholder: 'ejem. Batería renovable'
             },
@@ -12,7 +12,7 @@ export const fields = [
         {
             label: 'Agrega una pequeña descripción',
             field: {
-                id: 'description',
+                id: 'descripcion',
                 type: 'text',
                 placeholder: 'ejem. Batería renovable por 5 años amigable con el ambiente'
             },
@@ -21,7 +21,7 @@ export const fields = [
         {
             label: 'Agrega el contenido de la noticia',
             field: {
-                id: 'content',
+                id: 'contenido',
                 type: 'textarea',
                 placeholder: 'ejem. Las baterías renovables ayudan al medio ambiente...'
             },
@@ -32,7 +32,7 @@ export const fields = [
         {
             label: 'Autor',
             field: {
-                id: 'author',
+                id: 'autor',
                 type: 'text',
                 placeholder: 'ejem. Miguel de Cervantes'
             },
@@ -41,7 +41,7 @@ export const fields = [
         {
             label: 'Fecha',
             field: {
-                id: 'date',
+                id: 'fecha_publicacion',
                 type: 'date',
                 placeholder: ''
             },
@@ -52,7 +52,7 @@ export const fields = [
         {
             label: 'Sube una imagen',
             field: {
-                id: 'image',
+                id: 'multimedia',
                 type: 'file',
                 placeholder: ''
             },

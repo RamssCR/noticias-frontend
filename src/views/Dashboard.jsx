@@ -1,3 +1,4 @@
+import { useFetch } from "@/hooks/useFetch"
 import AppLink from "@/components/UI/AppLink"
 import Title from "@/components/UI/Title"
 import Icon from "@/components/UI/Icon"
@@ -6,6 +7,8 @@ import TextBox from "@/components/UI/TextBox"
 import NewsCard from "@/components/news-card/NewsCard"
 
 function Dashboard() {
+    const [news] = useFetch('/noticias')
+
     return (
         <section className="w-full flex flex-col items-start gap-5">
             <AppLink to="/panel" className="px-5 bg-main-complementary ml-auto">
@@ -20,10 +23,12 @@ function Dashboard() {
                 />
             </div>
             <div className="w-full flex flex-col gap-4">
-                <NewsCard />
-                <NewsCard />
-                <NewsCard />
-                <NewsCard />
+                {news?.map(mappedNews => (
+                    <NewsCard
+                        key={mappedNews.id_noticias}
+                        news={mappedNews}
+                    />
+                ))}
             </div>
         </section>
     )
