@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import { useFetch } from "@/hooks/useFetch"
 import AppLink from "@/components/UI/AppLink"
 import Title from "@/components/UI/Title"
@@ -8,6 +9,18 @@ import NewsCard from "@/components/news-card/NewsCard"
 
 function Dashboard() {
     const [news] = useFetch('/noticias')
+    const [dynamicNews, setDynamicNews] = useState([])
+
+    useEffect(() => setDynamicNews(news), [news])
+    const filterByName = (e) => {
+        const searchValue = e.target.value.toLowerCase()
+        if (!searchValue) {
+            setDynamicNews(news)
+            return
+        }
+
+        setDynamicNews(news?.filter(filteredNews => filteredNews.titulo.toLowerCase().includes(searchValue))) 
+    }
 
     return (
         <section className="w-full flex flex-col items-start gap-5">
@@ -20,10 +33,11 @@ function Dashboard() {
                 <TextBox 
                     placeholder="Busca por categoría"
                     className="bg-transparent px-4 w-60"
+                    onInput={filterByName}
                 />
             </div>
             <div className="w-full flex flex-col gap-4">
-                {news?.map(mappedNews => (
+                {dynamicNews?.map(mappedNews => (
                     <NewsCard
                         key={mappedNews.id_noticias}
                         news={mappedNews}
