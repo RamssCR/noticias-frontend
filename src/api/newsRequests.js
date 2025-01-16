@@ -19,7 +19,7 @@ export const createNews = async data => await apiConfig.post('/noticias', data)
  * @param {object} data 
  * @returns {Promise<object>} the modified news
  */
-export const editNews = async (id, data) => await apiConfig.patch(`/noticias/${id}/edit`, data)
+export const editNews = async (id, data) => await apiConfig.patch(`/noticias/${id}`, data)
 
 /**
  * Submits for review to approve or reject a news

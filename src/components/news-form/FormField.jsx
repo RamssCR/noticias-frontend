@@ -19,7 +19,7 @@ function FormField({ label, field, register, error }) {
                     <input 
                         type={type} 
                         id={id}
-                        {...register(id, { required: true })} 
+                        {...register(id, { required: type !== 'file' })} 
                         placeholder={placeholder}
                         className={`rounded border border-slate-400 outline-none ${
                             type === 'file'
