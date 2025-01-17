@@ -17,10 +17,13 @@ function NewsForm({ type, news, id = null }) {
         if (type === 'edit' && news) reset(news)
     }, [type, reset, news])
 
-    for (const key in news) {
-        if (!news) break
-        setValue(key, news[key])
-    }
+    useEffect(() => {
+        for (const key in news) {
+            if (!news) break
+            setValue(key, news[key])
+        }
+    }, [news, setValue])
+
 
     const handleRequest = async data => {
         const formData = new FormData()
@@ -36,7 +39,7 @@ function NewsForm({ type, news, id = null }) {
         formData.append('id_usuario', data.id_usuario ?? VITE_TEST_USER_ID);
 
         try {
-            type === 'edit' ? await editNews(id, formData) : await createNews(formData)
+            type === 'edit' ? await editNews(id, data) : await createNews(formData)
             navigateTo('/panel')
         } catch (error) {
             // TODO: Create an error reporter to handle try-catch errors
